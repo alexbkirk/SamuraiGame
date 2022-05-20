@@ -153,6 +153,9 @@ const keys = {
     w: {
         pressed: false
     },
+    p:{
+        pressed: true
+    },
     ArrowLeft: {
         pressed: false
     },
@@ -170,11 +173,17 @@ function animate() {
     window.requestAnimationFrame(animate);
     c.fillStyle = 'black';
     c.fillRect(0, 0, canvas.width, canvas.height);
-
+    
     bkg.update();
-    player.update();
-    enemy.update();
+    
+    //enables puase
 
+    if(!keys.p.pressed){
+        player.update();
+        enemy.update();   
+    }
+
+      
     player.velocity.x = 0;
     enemy.velocity.x = 0;
     
@@ -267,7 +276,14 @@ function animate() {
 
 animate();
 
-window.addEventListener('keydown',(event)=>{    
+window.addEventListener('keydown',(event)=>{
+    switch(event.key){
+        case 'p':
+            keys.p.pressed = !keys.p.pressed;
+            pausebutton();
+        break
+    }
+    
     if(!player.dead){
     switch (event.key) {
 
@@ -284,7 +300,7 @@ window.addEventListener('keydown',(event)=>{
         case 'w':
             player.velocity.y = -11;
         break
-        case ' ':
+        case 's':
             player.attack()
         break  
         }

@@ -25,10 +25,39 @@ let timerId;
 function decreaseTimer() {
     if( timer > 0){
         timerId = setTimeout(decreaseTimer, 1000)
-        timer--
+        if(!keys.p.pressed){
+            timer--   
+        };
         document.querySelector('#timer').innerHTML = timer; 
     }; 
     if(timer === 0){
         determineWinner({player, enemy});
     };
 };
+
+// brings up pause menu 
+
+function pausebutton() {
+    if(keys.p.pressed)
+    {
+       document.querySelector('#pauseMenu').style.display = 'flex'; 
+    } else {
+        document.querySelector('#pauseMenu').style.display = 'none'; 
+    }
+    
+};
+
+// start menu toggle
+
+let startMenu = document.querySelector('#startingMenu').style.display
+
+function startGame(){
+    if(startMenu === 'flex'){
+        console.log("game needs to be started")
+        document.querySelector('#startingMenu').style.display = 'none'
+        keys.p.pressed = false
+    } 
+}
+
+    
+    

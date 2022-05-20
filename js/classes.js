@@ -38,7 +38,7 @@ class Sprite {
         } 
     }
 
-    update() {  
+    update() { 
         this.draw();
         this.animateFrames()
     };  
@@ -130,7 +130,6 @@ class Fighter extends Sprite {
         this.health -= 20
         if(this.health <= 0){
             this.switchSprite('death')
-            console.log(this.dead)
         } else {
             this.switchSprite('takeHit')
         }

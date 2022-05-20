@@ -11,104 +11,161 @@
     </style>
 </head>
 <body>
+    <!-- container div --> 
     <div style="
-            position: relative; 
-            display: inline-flex;
+            height: 576px;
+            width: 1024px;
+            margin: 0px auto;
+    "> 
+    <!-- Game Screen -->
+        <div id="startingMenu"
+            style="
+            position: fixed;
+            z-index: 2;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.507);
+            height: 576px;
+            width: 1024px;
+            align-items: center;
+            justify-content: center;
             ">
+            <div >
+                <h1>Samurai Fight!</h1>
+                <div style="
+                    display: flex;
+                    justify-content: center;
+                ">
+                    <button onclick="startGame();">Start</button> 
+                </div>
+                
+            </div>
+        </div>
+        
+        <div 
+            id="pauseMenu" 
+            style="
+            position: fixed;
+            z-index: 2;
+            display: none;
+            border-right: 4px solid black;
+            margin-right: 10px;
+            height: 576px;
+            width: 1024px;
+            align-items: center;
+            justify-items: center;
+        "><div>
+            <h2 style="
+                margin: 10px;
+                padding: 10px;
+            ">Pause Menu</h2></div>
+                <div>
+                    <button id="reset"  onclick= "window.location.reload();" >Reset</button>             
+                </div>
+
+        </div>
         <div style="
                 position: absolute; 
-                display: flex; 
-                width: 100%; 
-                align-items: center;
-                padding: 20px;"
-            >
-            <!-- player's health -->
+                display: inline-flex;
+                ">
             <div style="
-                position: relative;
-                width: 100%;
-                display: flex;
-                justify-content: flex-end;
-                border-top: 4px solid white;
-                border-left: 4px solid white;
-                border-bottom: 4px solid white;
-            ">
-                <div 
+                    position: absolute; 
+                    display: flex; 
+                    width: 100%; 
+                    align-items: center;
+                    padding: 20px;"
+                >
+                <!-- player's health -->
+                <div style="
+                    position: relative;
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    border-top: 4px solid white;
+                    border-left: 4px solid white;
+                    border-bottom: 4px solid white;
+                ">
+                    <div 
+                    style="
+                        background-color: red;
+                        height: 30px; 
+                        width: 100%;
+                    ">
+                    </div>
+                    <div 
+                    id="playerHealth" 
+                    style="   
+                        position: absolute; 
+                        background: #818cf8;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        width: 100%;
+                    ">
+                    </div>
+                </div>
+                <!-- timer-->
+                <div
+                id ="timer"
                 style="
+                        background-color: black; 
+                        height: 50px; 
+                        width: 100px; 
+                        flex-shrink: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        border: 4px solid white;
+                        ">
+                        10
+                    </div>
+                <!-- enemy's health -->
+                <div style="
+                    position: relative;
+                    width: 100%;
+                    border-top: 4px solid white;
+                    border-right: 4px solid white;
+                    border-bottom: 4px solid white;
+                ">
+                    <div 
+                    style="
                     background-color: red;
                     height: 30px; 
-                    width: 100%;
-                ">
-                </div>
-                <div 
-                id="playerHealth" 
-                style="   
+                    width: 100%;">
+                    </div>
+                    <div 
+                    id="enemyHealth" 
+                    style="   
                     position: absolute; 
                     background: #818cf8;
                     top: 0;
                     right: 0;
                     bottom: 0;
-                    width: 100%;
-                ">
+                    left: 0;
+                    ">
+                    </div>
                 </div>
             </div>
-            <!-- timer-->
             <div
-            id ="timer"
-            style="
-                    background-color: black; 
-                    height: 50px; 
-                    width: 100px; 
-                    flex-shrink: 0;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: white;
-                    border: 4px solid white;
-                    ">
-                    10
-                </div>
-            <!-- enemy's health -->
-            <div style="
-                position: relative;
-                width: 100%;
-                border-top: 4px solid white;
-                border-right: 4px solid white;
-                border-bottom: 4px solid white;
-            ">
-                <div 
-                style="
-                background-color: red;
-                height: 30px; 
-                width: 100%;">
-                </div>
-                <div 
-                id="enemyHealth" 
-                style="   
-                position: absolute; 
-                background: #818cf8;
+                id="displayText"
+                style=" 
+                position: absolute;
+                color: white;
+                display: none;
+                align-items: center;
+                justify-content: center;
                 top: 0;
                 right: 0;
                 bottom: 0;
                 left: 0;
-                ">
-                </div>
+            ">
             </div>
-        </div>
-        <div
-            id="displayText"
-            style=" 
-            position: absolute;
-            color: white;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-        ">
-        </div>
-        <canvas></canvas>
+                <canvas id="gameScreen"
+                        style="
+                        display: inline-block;
+                        ">
+                </canvas>
+            </div>
     </div>
 <script 
     src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" 
