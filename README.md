@@ -44,18 +44,18 @@ This version of the game currently provides:
  
  Currently plans are to add: 
  
-  [x] A Start Menu
-  [x] Reset button
-  - Single-Player Mode
-  - Multiple Attacks
-  - Multiple Fighters
+  - [x] A Start Menu
+  - [x] Reset button
+  - [ ] Single-Player Mode
+  - [ ] Multiple Attacks
+  - [ ] Multiple Fighters
  
  ### Known bugs
 
   Here is a list of bugs the developer is currently aware of:
     
-  [] when 'p' is pressed in the start menu the game starts behind the start menu screen
-  [] when the 'jump' action is performed in rapid succession the jump action glitches
-  [] players have the ability to move off-screen 
+  - [ ] when 'p' is pressed in the start menu the game starts behind the start menu screen
+  - [ ] when the 'jump' action is performed in rapid succession the jump action glitches
+  - [ ] players have the ability to move off-screen 
 
   if further bugs are found please provide them in the issues tab on the Github repository [link](https://github.com/alexbkirk/SamuraiGame/issues) 
